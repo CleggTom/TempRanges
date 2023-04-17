@@ -30,7 +30,7 @@ t_vec = range(0,1,length = N_T)
 
 #compile
 mc = fw.stable_metacommunity(sp_vec, 1, t_vec, T_range = 0.1, R = 43.0,
-             psw_threshold = 0.8, max_draws = 10, verbose = verbose, vk = vk)
+             psw_threshold = 0.8, max_draws = 10, verbose = false)
 mc_prob = deepcopy(mc)
 mc_random = deepcopy(mc)
 fw.check_metacommunity(mc);
@@ -49,7 +49,7 @@ bodysize = Array{Vector{Float64},3}(undef, N_T, N_dispersal,2)
 
 #generate community
 mc = fw.stable_metacommunity(sp_vec, N, t_vec, T_range = 0.1, R = 43.0,
-             psw_threshold = 0.8, max_draws = 1000, verbose = verbose, vk = vk)
+             psw_threshold = 0.8, max_draws = 1000, verbose = false)
 mc_prob = deepcopy(mc)
 mc_random = deepcopy(mc)
 fw.check_metacommunity(mc);
