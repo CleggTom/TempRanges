@@ -18,4 +18,4 @@ module purge
 module load julia/1.7.2
 
 # run julia script
-srun julia ./Code/slurmtest.jl $SLURM_JOBID $SLURM_ARRAY_TASK_ID $SLURM_ARRAY_JOB_ID
+srun julia ./Code/slurm_script.jl $SLURM_ARRAY_JOB_ID $SLURM_ARRAY_TASK_ID
