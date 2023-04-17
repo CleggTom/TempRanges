@@ -13,6 +13,7 @@ fw = FoodWebs
 #get args
 id = ARGS[1]
 id_n = ARGS[2]
+save_loc = ARGS[3]
 N = 10
 C = 0.1
 
@@ -89,6 +90,6 @@ for d = 1:N_dispersal
 
 end
 
-fn = join(["./data/results_",id,".jld2"])
+fn = join([save_loc,"/data/results_",id,".jld2"])
 
 save(fn, Dict("psw" => psw, "params" => params, "bodysize" => bodysize))
