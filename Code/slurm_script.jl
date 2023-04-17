@@ -91,4 +91,4 @@ end
 
 fn = join(["./data/results_",id,".jld2"])
 
-save("./data/results.jld2", Dict("psw" => psw, "params" => params, "bodysize" => bodysize))
+save(fn, Dict("psw" => psw, "params" => params, "bodysize" => bodysize))
