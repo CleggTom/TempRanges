@@ -7,7 +7,7 @@
  
 # run 100 tasks, but only run 10 at a time
 #SBATCH --array=1-2%2
-#SBATCH --output=result_%A_%a.out    # gives result_<jobID>_<taskID>.out
+#SBATCH --output=Outputs/result_%A_%a.out    # gives result_<jobID>_<taskID>.out
  
 echo "SLURM_JOBID:         $SLURM_JOBID"
 echo "SLURM_ARRAY_TASK_ID: $SLURM_ARRAY_TASK_ID"
