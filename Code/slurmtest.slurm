@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#SBATCH --job-name=TempRanges
 #SBATCH --account=biotheo.biotheo         # Your account
 #SBATCH --partition=smp
 #SBATCH --time=0:10:00
