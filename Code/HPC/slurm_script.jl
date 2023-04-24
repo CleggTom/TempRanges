@@ -1,11 +1,12 @@
+start = time()
+
 using Pkg
 
 Pkg.activate(".")
-Pkg.update("FoodWebs")
 
 using FoodWebs
 using LinearAlgebra
-using StatsBase, Polynomials
+using StatsBase
 using JLD2
 
 fw = FoodWebs
@@ -14,8 +15,8 @@ fw = FoodWebs
 id = ARGS[1]
 id_n = ARGS[2]
 save_loc = ARGS[3]
-N = 10
-C = 0.1
+N = 25
+C = 0.2
 
 #function to get mass
 get_M(com) = (com.R .^ [s.n for s = com.sp])
@@ -36,7 +37,6 @@ mc_prob = deepcopy(mc)
 mc_random = deepcopy(mc)
 fw.check_metacommunity(mc);
 
-
 #3) DISPERSAL
 # FoodWebs.K_dispersals!(mc1,10)
 N_dispersal = 2
@@ -49,12 +49,14 @@ params = Array{fw.GeneralisedParameters, 4}(undef, N_T, N_dispersal,2,N_trials)
 bodysize = Array{Vector{Float64},3}(undef, N_T, N_dispersal,2)
 
 #generate community
+println("community generation")
 mc = fw.stable_metacommunity(sp_vec, N, t_vec, T_range = 0.1, R = 43.0,
-             psw_threshold = 0.8, max_draws = 1000, verbose = false)
+             psw_threshold = 0.8, max_draws = 1000, verbose = true, vk = 100)
 mc_prob = deepcopy(mc)
 mc_random = deepcopy(mc)
 fw.check_metacommunity(mc);
 
+println("dispersal simualtion")
 #simulate
 for d = 1:N_dispersal
     #probabablistic
@@ -90,6 +92,13 @@ for d = 1:N_dispersal
 
 end
 
-fn = join([save_loc,"/data/results_",id,".jld2"])
+println("Saving")
+
+fn = join([save_loc,"/results_",id,"_",id_n,".jld2"])
+println(fn)
 
 save(fn, Dict("psw" => psw, "params" => params, "bodysize" => bodysize))
+
+e = time()
+
+print("start: ", start, " end: ", e, " time taken: ", e - start )
