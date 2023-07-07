@@ -1,6 +1,7 @@
 [deps]
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 ColorSchemes = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 FoodWebs = "eb5e2042-3c7d-468c-9da2-348e0f8d9fea"
 GraphMakie = "1ecd5474-83a3-4783-bb4f-06765db800d2"
 Graphs = "86223c79-3864-5bf0-83f7-82e725a168b6"
@@ -9,4 +10,5 @@ LambertW = "984bce1d-4616-540c-a9ee-88d1112d94c9"
 MetaGraphs = "626554b9-1ddb-594c-aa3c-2596fe9399a5"
 NetworkLayout = "46757867-2c16-5918-afeb-47bfcb05e46a"
 Polynomials = "f27b6e38-b328-58d1-80ce-0feddd5e7a45"
+ProfileVega = "4391764f-db79-4bd7-a4c6-f9062de4300e"
 StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
